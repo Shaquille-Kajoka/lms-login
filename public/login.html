@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in | LearnHub LMS</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<main class="auth">
+  <!-- Brand panel -->
+  <section class="brand" aria-hidden="true">
+    <div class="orb orb-1"></div><div class="orb orb-2"></div>
+    <div class="brand-inner">
+      <div class="logo"><span class="logo-mark">L</span> LearnHub</div>
+      <h2>Learn without limits.</h2>
+      <p>Courses, assignments, grades and live classes, all in one place.</p>
+      <ul class="stats">
+        <li><strong>120+</strong><span>Courses</span></li>
+        <li><strong>8k</strong><span>Learners</span></li>
+        <li><strong>24/7</strong><span>Access</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Form panel -->
+  <section class="panel">
+    <div class="card">
+      <!-- Sign in -->
+      <form id="loginForm" novalidate>
+        <h1>Welcome back</h1>
+        <p class="sub">Sign in to continue to your classroom.</p>
+        <div id="loginMsg" class="msg" role="alert" hidden></div>
+
+        <label class="field">
+          <span>Username or email</span>
+          <div class="control">
+            <svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-4 0-8 2-8 5v1h16v-1c0-3-4-5-8-5Z"/></svg>
+            <input id="username" name="username" type="text" autocomplete="username" placeholder="e.g. jsmith" required>
+          </div>
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <div class="control">
+            <svg viewBox="0 0 24 24"><path d="M17 9V7a5 5 0 0 0-10 0v2H5v12h14V9h-2ZM9 7a3 3 0 0 1 6 0v2H9V7Z"/></svg>
+            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+            <button type="button" id="togglePw" class="eye" aria-label="Show password" aria-pressed="false">Show</button>
+          </div>
+        </label>
+
+        <div class="row">
+          <label class="check"><input type="checkbox" id="remember"> Remember me</label>
+          <a href="#" id="showForgot">Forgot password?</a>
+        </div>
+
+        <button class="btn" id="loginBtn" type="submit"><span>Sign in</span></button>
+        <p class="foot">Need help? Contact your administrator.</p>
+      </form>
+
+      <!-- Forgot password -->
+      <form id="forgotForm" novalidate hidden>
+        <h1>Reset password</h1>
+        <p class="sub">Enter your account email and we'll send a reset link.</p>
+        <div id="forgotMsg" class="msg" role="alert" hidden></div>
+        <label class="field">
+          <span>Email address</span>
+          <div class="control">
+            <svg viewBox="0 0 24 24"><path d="M3 5h18v14H3V5Zm2 2v.5l7 4.5 7-4.5V7H5Z"/></svg>
+            <input id="femail" type="email" autocomplete="email" placeholder="you@school.edu" required>
+          </div>
+        </label>
+        <button class="btn" id="forgotBtn" type="submit"><span>Send reset link</span></button>
+        <p class="foot"><a href="#" id="showLogin">&larr; Back to sign in</a></p>
+      </form>
+    </div>
+  </section>
+</main>
+<script src="/js/login.js"></script>
+</body>
+</html>

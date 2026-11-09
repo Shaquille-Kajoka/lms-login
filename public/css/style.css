@@ -1,0 +1,52 @@
+:root{--bg:#f4f6fb;--ink:#14182b;--muted:#667089;--line:#dfe3ee;--brand:#4f46e5;--brand2:#06b6d4;--err:#d92d4b;--ok:#0f9d6b;--r:14px}
+*{box-sizing:border-box;margin:0}
+body{font-family:Inter,"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);min-height:100vh}
+.auth{display:grid;grid-template-columns:1.1fr 1fr;min-height:100vh}
+
+/* Brand side */
+.brand{position:relative;overflow:hidden;display:flex;align-items:center;padding:64px;color:#fff;
+  background:linear-gradient(135deg,#312e81 0%,#4f46e5 50%,#06b6d4 120%)}
+.orb{position:absolute;border-radius:50%;opacity:.22;background:#fff}
+.orb-1{width:380px;height:380px;top:-120px;right:-100px;animation:float 9s ease-in-out infinite}
+.orb-2{width:260px;height:260px;bottom:-90px;left:-60px;animation:float 11s ease-in-out infinite reverse}
+@keyframes float{50%{transform:translateY(22px) scale(1.05)}}
+.brand-inner{position:relative;max-width:460px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.5rem;margin-bottom:56px}
+.logo-mark{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:#fff;color:var(--brand);font-size:1.4rem}
+.brand h2{font-size:2.8rem;line-height:1.1;margin-bottom:16px;letter-spacing:-.02em}
+.brand p{font-size:1.1rem;opacity:.9;line-height:1.6}
+.stats{display:flex;gap:16px;list-style:none;padding:0;margin-top:40px}
+.stats li{flex:1;padding:16px;border-radius:var(--r);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25)}
+.stats strong{display:block;font-size:1.5rem}.stats span{font-size:.85rem;opacity:.85}
+
+/* Form side */
+.panel{display:grid;place-items:center;padding:32px}
+.card{width:100%;max-width:420px;background:#fff;border-radius:20px;padding:40px;box-shadow:0 20px 60px rgba(31,41,100,.12);animation:rise .5s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+h1{font-size:1.8rem;letter-spacing:-.02em;margin-bottom:6px}
+.sub{color:var(--muted);margin-bottom:24px}
+.field{display:block;margin-bottom:18px}
+.field>span{display:block;font-size:.85rem;font-weight:600;margin-bottom:8px}
+.control{display:flex;align-items:center;gap:10px;padding:0 14px;height:50px;border:1.5px solid var(--line);border-radius:12px;background:#fafbff;transition:.2s}
+.control:focus-within{border-color:var(--brand);background:#fff;box-shadow:0 0 0 4px rgba(79,70,229,.14)}
+.control svg{width:20px;height:20px;fill:#98a0b8;flex:none}
+.control:focus-within svg{fill:var(--brand)}
+.control input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;color:var(--ink)}
+.eye{border:0;background:none;color:var(--brand);font-family:inherit;font-weight:600;font-size:.85rem;cursor:pointer;padding:6px}
+.row{display:flex;justify-content:space-between;align-items:center;margin:4px 0 22px;font-size:.9rem}
+.check{display:flex;align-items:center;gap:8px;color:var(--muted);cursor:pointer}
+.check input{accent-color:var(--brand);width:16px;height:16px}
+a{color:var(--brand);font-weight:600;text-decoration:none}a:hover{text-decoration:underline}
+.btn{width:100%;height:52px;border:0;border-radius:12px;font-family:inherit;font-weight:700;font-size:1rem;color:#fff;cursor:pointer;
+  background:linear-gradient(90deg,var(--brand),#7c3aed);box-shadow:0 10px 24px rgba(79,70,229,.35);transition:.2s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 14px 28px rgba(79,70,229,.4)}
+.btn:disabled{opacity:.7;cursor:wait;transform:none}
+.btn.loading span::after{content:"";display:inline-block;width:16px;height:16px;margin-left:10px;vertical-align:-3px;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.foot{text-align:center;margin-top:20px;font-size:.88rem;color:var(--muted)}
+.msg{padding:12px 14px;border-radius:10px;margin-bottom:18px;font-size:.9rem;background:#fdecef;color:var(--err);border:1px solid #f7c5cf}
+.msg.ok{background:#e7f8f1;color:var(--ok);border-color:#b8ead7}
+[hidden]{display:none!important}
+
+@media(max-width:860px){.auth{grid-template-columns:1fr}.brand{display:none}.card{padding:28px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
