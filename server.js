@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const rateLimit = require('express-rate-limit');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const Database = require('better-sqlite3');
+const { DatabaseSync } = require('node:sqlite'); // built into Node 22.5+, no compiling needed
 
 const PORT = process.env.PORT || 3000;
 const IS_PROD = process.env.NODE_ENV === 'production';
@@ -15,7 +15,7 @@ const JWT_SECRET = process.env.JWT_SECRET || crypto.randomBytes(32).toString('he
 const MAX_FAILS = 5, LOCK_MS = 15 * 60 * 1000;
 
 /* ---------- Database ---------- */
-const db = new Database(path.join(__dirname, 'lms.db'));
+const db = new DatabaseSync(path.join(__dirname, 'lms.db'));
 db.exec(`CREATE TABLE IF NOT EXISTS users (
   id INTEGER PRIMARY KEY,
   username TEXT UNIQUE NOT NULL COLLATE NOCASE,
